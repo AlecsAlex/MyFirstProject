@@ -17,6 +17,9 @@ df = pd.read_pickle("../../data/interim/01_data_processed.pkl")
 set_df = df.query("set == 1" )
 
 plt.plot(set_df["acc_y"])
+
+plt.plot(set_df["acc_y"].reset_index(drop = True))
+
 # --------------------------------------------------------------
 # Plot all exercises
 # --------------------------------------------------------------
