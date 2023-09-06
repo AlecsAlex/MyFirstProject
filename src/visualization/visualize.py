@@ -26,9 +26,19 @@ plt.plot(set_df["acc_y"].reset_index(drop=True))
 
 for label in df["label"].unique():
     subset = df[df["label"] == label]
-    #display(subset.head(2))
+    # display(subset.head(2))
     fig, ax = plt.subplots()
-    plt.plot(set_df["acc_y"].reset_index(drop=True), label = label)
+    plt.plot(subset["acc_y"].reset_index(drop=True), label=label)
+    plt.legend()
+    plt.show()
+
+# iau doar primele 100 de inregistrari, sa arate mai frumos
+
+for label in df["label"].unique():
+    subset = df[df["label"] == label]
+    # display(subset.head(2))
+    fig, ax = plt.subplots()
+    plt.plot(subset[:100]["acc_y"].reset_index(drop=True), label=label)
     plt.legend()
     plt.show()
 
@@ -36,10 +46,22 @@ for label in df["label"].unique():
 # Adjust plot settings
 # --------------------------------------------------------------
 
+# setez parametrii graficelor
+
+mpl.style.use("seaborn-v0_8-deep")
+mpl.rcParams["figure.figsize"] = (20, 5)
+mpl.rcParams["figure.dpi"] = 100
+
 
 # --------------------------------------------------------------
 # Compare medium vs. heavy sets
 # --------------------------------------------------------------
+
+
+category_df = df.query("label == 'squat'").query("participant== 'A'").reset_index()
+# le plotez dupa group by
+
+category_df.groupby(["category"])["acc_y"].plot()
 
 
 # --------------------------------------------------------------
