@@ -168,10 +168,10 @@ data_merged.columns = [
     "gyr_x",
     "gyr_y",
     "gyr_z",
-    "participant",   
+    "participant",
     "label",
     "category",
-    "set" ,
+    "set",
 ]
 
 
