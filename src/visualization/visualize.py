@@ -149,11 +149,12 @@ participant = "A"
 combined_plot_df = (
     df.query(f"label == '{label}'")
     .query(f"participant == '{participant}'")
-    .reset_index()
+    .reset_index(drop=True)
 )
 
-
-
+fig, ax = plt.subplots(nrows=2, sharex = True, figsize = (20,10))
+combined_plot_df[["acc_x", "acc_y", "acc_z"]].plot(ax=ax[0])
+combined_plot_df[["gyr_x", "gyr_y", "gyr_z"]].plot(ax=ax[1])
 
 # --------------------------------------------------------------
 # Loop over all combinations and export for both sensors
