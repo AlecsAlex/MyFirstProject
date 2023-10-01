@@ -8,7 +8,7 @@
 #    conda env remove --name tracking-barbell-exercises
 #    conda env list
 
-name: tracking-barbell-exercises_2
+name: tracking-barbell-exercises_3
 channels:
   - anaconda
   - conda-forge
